@@ -202,7 +202,7 @@ def header(has_dark):
     else:
         button = ""
 
-    out = '<header><meta name="google-site-verification" content="cWxy5qGlQEU5eQZEmxDL9fwPaMx0XWlMIoKKUnMzrb8" /><div id="scroller"></div>\n%s</header>\n' % button
+    out = '<header><div id="scroller"></div>\n%s</header>\n' % button
     return out
 
 
