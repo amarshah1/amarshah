@@ -1,6 +1,6 @@
 {
     "headshot" : "images/amar.png",
-    "about"    : "My name is Amar Shah. I am a Undergraduate student studying Math and Computer Science, with a minor in Logic, at the University of California, Berkeley. This spring I will be interning with Zhendong Su's group at ETH Zurich.",
+    "about"    : "My name is Amar Shah. This past fall, I graduated from the University of California, Berkeley studying Math and Computer Science (with a minor in Logic), advised by Prof Sanjit Seshia.",
     "research" : "I am interested in building safe and verifiable software. Specifically, I aim to develop better tools for formal verifcation, programming languages, and automated reasoning.",
     "teaching" : "I also really enjoy teaching, at Berkeley I have been on course staff for Math 1A: Calculus, CS 70: Discrete Math and Probability Theory, CS 170: Efficient Algorithms and Intractable Problems, and C191: Quantum Information Science and Technology",
     "cv"       : "cv/cv.pdf",
