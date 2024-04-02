@@ -191,7 +191,7 @@ def replace_placeholders(text: str, map: Dict[str, str]):
 # Define functions for website pieces
 
 
-def header(has_dark):
+def header(has_dark, profile, cv_at_top = True):
     if has_dark:
         button = """<label class="switch-mode">
     <input type="checkbox" id="mode">
@@ -202,7 +202,14 @@ def header(has_dark):
     else:
         button = ""
 
-    out = '<header><div id="scroller"></div>\n%s</header>\n' % button
+    if cv_at_top:
+        top_right = f"""<div class="top-right">
+                       <a href="{profile["cv"]}">CV</a> | <a href="{profile["scholar"]}">Scholar</a> | Contact
+                       </div>\n"""
+    else:
+        top_right = ""
+
+    out = f'<header><div id="scroller"></div>\n{top_right}{button}</header>\n'
     return out
 
 
@@ -407,7 +414,7 @@ def build_pubs(pubs, full: bool):
     return pubs_html
 
 
-def build_profile(profile: Dict[str, str]):
+def build_profile(profile: Dict[str, str], cv_top = True):
     profile_html = '<div class="profile">\n'
     profile_html += (
         '<img class="headshot" src="%s" alt="Headshot"/>\n' % profile["headshot"]
@@ -417,10 +424,11 @@ def build_profile(profile: Dict[str, str]):
         profile_html += "<p>" + "</p><p>".join(profile["research"].split("\n")) + "</p>"
     if "teaching" in profile:
         profile_html += "<p>" + "</p><p>".join(profile["teaching"].split("\n")) + "</p>"
-    profile_html += "\n<p>Here is my "
-    profile_html += '<a href="%s">CV</a> and ' % profile["cv"]
-    profile_html += '<a href="%s">Google Scholar</a>. ' % profile["scholar"]
-    profile_html += "You can reach me at %s." % profile["email"]
+    if not cv_top:
+        profile_html += "\n<p>Here is my "
+        profile_html += '<a href="%s">CV</a> and ' % profile["cv"]
+        profile_html += '<a href="%s">Google Scholar</a>. ' % profile["scholar"]
+        profile_html += "You can reach me at %s." % profile["email"]
     profile_html += "</p>\n"  # close description paragraph
     profile_html += "</div>\n"  # close profile
 
@@ -463,7 +471,9 @@ def add_links(html: str, links: Dict[str, str]):
     toreplace = sorted(links.keys(), key=len, reverse=True)
 
     for name in toreplace:
+        print(f"Replacing {name}")
         pos = html.find(name)
+        print(pos)
         while pos != -1:
             prefix = html[:pos]
             suffix = html[pos:]
@@ -483,6 +493,7 @@ def add_links(html: str, links: Dict[str, str]):
             )  # we got rid of name and replaced it with target
             tmp = html[start:].find(name)
             pos = tmp + start if tmp >= 0 else tmp
+            print("HERE", html[:pos])
 
     return html
 
@@ -496,8 +507,10 @@ def build_index(
     has_dark: bool,
 ):
     body_html = "<body>\n"
-    body_html += header(has_dark)
+    body_html += header(has_dark, profile_json)
+    body_html += "<div class='title'><h1>Amar Shah</h1></div>\n"
     body_html += '<div class="content">\n'
+    body_html += "<div class='hbar'></div>\n"
     body_html += build_profile(profile_json)
     body_html += build_news(news_json, 5, False)
     body_html += build_pubs(pubs_bibtex, False)
@@ -515,6 +528,7 @@ def build_index(
 
 
 def build_news_page(
+    profile_json: Dict[str, str],
     news_json: List[Dict[str, str]],
     links: Dict[str, str],
     notes: Dict[str, str],
@@ -526,7 +540,7 @@ def build_news_page(
         return ""
 
     body_html = "<body>\n"
-    body_html += header(has_dark)
+    body_html += header(has_dark, profile_json)
     body_html += '<div class="content">\n'
     body_html += content
     body_html += "</div>\n"
@@ -543,6 +557,7 @@ def build_news_page(
 
 
 def build_pubs_page(
+    profile_json: Dict[str, str],
     pubs_bibtex,
     links: Dict[str, str],
     notes: Dict[str, str],
@@ -554,7 +569,7 @@ def build_pubs_page(
         return ""
 
     body_html = "<body>\n"
-    body_html += header(has_dark)
+    body_html += header(has_dark, profile_json)
     body_html += '<div class="content">\n'
     body_html += content
     body_html += "</div>\n"
@@ -808,8 +823,8 @@ if __name__ == "__main__":
     main_css = replace_placeholders(main_css, style_json)
     light_css = replace_placeholders(light_css, style_json)
     dark_css = replace_placeholders(dark_css, style_json)
-    news_page = build_news_page(news_json, auto_links_json, auto_notes_json, has_dark)
-    pubs_page = build_pubs_page(pubs_bibtex, auto_links_json, auto_notes_json, has_dark)
+    news_page = build_news_page(profile_json, news_json, auto_links_json, auto_notes_json, has_dark)
+    pubs_page = build_pubs_page(profile_json, pubs_bibtex, auto_links_json, auto_notes_json, has_dark)
     index_page = build_index(
         profile_json, news_json, pubs_bibtex, auto_links_json, auto_notes_json, has_dark
     )
