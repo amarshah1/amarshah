@@ -471,9 +471,7 @@ def add_links(html: str, links: Dict[str, str]):
     toreplace = sorted(links.keys(), key=len, reverse=True)
 
     for name in toreplace:
-        print(f"Replacing {name}")
         pos = html.find(name)
-        print(pos)
         while pos != -1:
             prefix = html[:pos]
             suffix = html[pos:]
@@ -493,7 +491,6 @@ def add_links(html: str, links: Dict[str, str]):
             )  # we got rid of name and replaced it with target
             tmp = html[start:].find(name)
             pos = tmp + start if tmp >= 0 else tmp
-            print("HERE", html[:pos])
 
     return html
 
