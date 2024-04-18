@@ -1,6 +1,6 @@
 {
-    "headshot" : "images/lostcoast.jpg",
-    "about"    : "I was advised by Professor Sanjit A. Seshia at the University of California, Berkeley studying Math, Computer Science, and Logic.",
+    "headshot" : "images/lostcoast.png",
+    "about"    : "I am currently an intern in Zhendong Su's group at ETH Zürich. I finished my undergradute at the University of California, Berkeley studying Math, Computer Science, and Logic, where I was advised by Federico Mora and Sanjit A. Seshia.",
     "research" : "I am interested in building safe and verifiable software. Specifically, I aim to develop better tools for formal verification, programming languages, and automated reasoning.",
     "teaching" : "I also really enjoy teaching, at Berkeley I have been on course staff for Math 1A: Calculus, CS 70: Discrete Math and Probability Theory, CS 170: Efficient Algorithms and Intractable Problems, and C191: Quantum Information Science and Technology",
     "cv"       : "cv/cv.pdf",
