@@ -106,13 +106,30 @@ a {
 }
 
 /* Start Profile */
-.headshot {
+
+.image-hover {
+    position:relative;
     padding-top: 1.25em;
-    padding-right: 1em;
-    padding-bottom: 0em;
+    padding-right: 1em; 
+    padding-bottom: 16em;
     width:25%;
-    max-width: 235px;
+    /* height: 25%; */
+    /* width:175px;
+    height:290px; */
+    margin-top: 2%;
+    margin-right:2%;
+    /* margin-bottom: 5%; */
+    /* max-width: 235px; */
     float: left;
+    background-image: url('images/lostcoast.png');
+    background-size: cover; /* Cover the entire area of the element */
+    transition: background-image 0.5s ease-in-out; /* Smooth transition */
+    z-index:0;
+    word-wrap: break-word;
+}
+
+.image-hover:hover {
+    background-image: url('images/lostcoastwithoutamar.png'); /* Change on hover */
 }
 
 /* Styling for the Top Right */

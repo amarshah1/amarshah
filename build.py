@@ -416,9 +416,16 @@ def build_pubs(pubs, full: bool):
 
 def build_profile(profile: Dict[str, str], cv_top = True):
     profile_html = '<div class="profile">\n'
-    profile_html += (
-        '<img class="headshot" src="%s" alt="Headshot"/>\n' % profile["headshot"]
-    )
+    profile_html += ("<div class=\"image-hover\"></div>")
+    # f'<img class="image-hover" src="{profile["headshot"]}" alt="headshot"/>\n<script src="hover.js"></script>'
+    # ("<p><div class=\"image-hover\"></div></p>")
+    
+        # f"""<div class="image-container">
+        # <img class="headshot" src="{profile["headshot"]}" alt="headshot"/>
+        # <img class="headshot-hover" src="{profile["headshot_alternate"]}" alt="headshot-hover"/>
+        # </div>
+        # <script src="hover.js"></script>
+        # """
     profile_html += "<p>" + "</p><p>".join(profile["about"].split("\n")) + "</p>"
     if "research" in profile:
         profile_html += "<p>" + "</p><p>".join(profile["research"].split("\n")) + "</p>"
