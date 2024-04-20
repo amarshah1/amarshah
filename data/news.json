@@ -1,6 +1,10 @@
 [
 
     {
+        "date": "2/2024",
+        "text": "<a href=\"https://www.youtube.com/watch?v=I1wHDsPZHbI\">Federico presented</a> our work on SMT solving for ADTs at AAAI"
+    },
+    {
         "date": "11/2023",
         "text": "Our work on Optimal Control in Transition Path Theory has been <a href=\"https://www.sciencedirect.com/science/article/pii/S1007570423006226\">published</a>"
 
@@ -31,11 +35,6 @@
     {
         "date": "03/2023",
         "text": "I won the <a href=\"https://research.berkeley.edu/surf-fellows/amar-shah/\">SURF Fellowship</a> to continue my research at Berkeley over the summer"
-
-    },
-    {
-        "date": "02/2023",
-        "text": "I won an Outstanding Session Presentation award for my presentation at the <a href=\"https://gcurs.rice.edu/\">Gulf Coast Undergraduate Research Seminar</a>"
 
     },
     {

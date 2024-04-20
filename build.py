@@ -374,7 +374,8 @@ def build_pubs_inner(pubs, title: str, full: bool):
             }
             pubs_list += replace_placeholders(paper_html, paper_map)
 
-    pubs_html = '<h3 id="%spublications">%s</h3>' % (title, title)
+    # pubs_html = '<h3 id="%spublications">%s</h3>' % (title, title)
+    pubs_html = ''
     pubs_html += pubs_list
 
     return pubs_html
