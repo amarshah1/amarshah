@@ -1,5 +1,12 @@
 [
-
+    {
+        "date": "07/2024",
+        "text": "I attended the <a href=\"https://sat-smt-ar-school.gitlab.io/www/2024/\">SAT/SMT summer school</a> in Nancy, France"
+    }, 
+    {
+        "date": "06/2024",
+        "text": "I came second place at the <a href=\"https://src.acm.org/\">2024 ACM Grand Finals</a>!"
+    },
     {
         "date": "02/2024",
         "text": "<a href=\"https://www.youtube.com/watch?v=I1wHDsPZHbI\">Federico presented</a> our work on SMT solving for ADTs at AAAI"
